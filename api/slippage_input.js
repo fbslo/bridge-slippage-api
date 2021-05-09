@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
   let infura_key = process.env.INFURA_KEY
 
   let data = await uniswapPrice.getExecutionPriceViaExactToken(source, source_decimals, dest, dest_decimals, weth, weth_decimals, amount, 1, infura_key)
-  let final_amount_after_slippage = data * 0.98
+  let final_amount_after_slippage = parseFloat(data * 0.98 * Math.pow(10, dest_decimals)).toFixed(0)
 
   res.json({
     amount: final_amount_after_slippage
