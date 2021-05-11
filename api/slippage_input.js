@@ -2,8 +2,6 @@ const express = require('express')
 const router = express.Router()
 const uniswapPrice = require('uniswap-price')
 
-const wleo = ''
-
 router.get('/', async (req, res) => {
   let source = req.query.input
   let source_decimals = req.query.input_decimals
